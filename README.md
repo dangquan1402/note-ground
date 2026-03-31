@@ -10,6 +10,21 @@ This repository contains the published plugin artifacts in `bundle/`:
 
 ## Install
 
+### Option A: Install Script
+
+```bash
+chmod +x install.sh
+./install.sh /path/to/your/vault
+```
+
+This copies the bundle files into:
+
+```bash
+<vault>/.obsidian/plugins/note-ground/
+```
+
+### Option B: Manual
+
 1. Download `bundle/main.js`, `bundle/manifest.json`, and `bundle/styles.css` from this repository or its releases.
 2. Create the folder `<your-vault>/.obsidian/plugins/note-ground/`.
 3. Copy the three files into that folder.
