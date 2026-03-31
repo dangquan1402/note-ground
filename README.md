@@ -17,6 +17,13 @@ chmod +x install.sh
 ./install.sh /path/to/your/vault
 ```
 
+Or install directly into the currently open Obsidian vault:
+
+```bash
+chmod +x install.sh
+./install.sh --active-vault
+```
+
 This copies the bundle files into:
 
 ```bash
