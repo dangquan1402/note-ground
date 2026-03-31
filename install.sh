@@ -2,8 +2,12 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-BUNDLE_DIR="${SCRIPT_DIR}/bundle"
+SCRIPT_DIR=""
+if [[ -n "${BASH_SOURCE[0]:-}" && -e "${BASH_SOURCE[0]}" ]]; then
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+fi
+BUNDLE_DIR="${SCRIPT_DIR:+${SCRIPT_DIR}/bundle}"
+RAW_BASE_URL="${NOTE_GROUND_RAW_BASE_URL:-https://raw.githubusercontent.com/dangquan1402/note-ground/main/bundle}"
 
 usage() {
   cat <<'EOF'
@@ -14,6 +18,24 @@ Usage:
 Options:
   --active-vault   Detect the currently open Obsidian vault from app config
 EOF
+}
+
+download_bundle_file() {
+  local file_name="$1"
+  local target_path="$2"
+  curl -fsSL "${RAW_BASE_URL}/${file_name}" -o "${target_path}"
+}
+
+install_bundle_file() {
+  local file_name="$1"
+  local target_path="$2"
+
+  if [[ -n "${BUNDLE_DIR}" && -f "${BUNDLE_DIR}/${file_name}" ]]; then
+    cp "${BUNDLE_DIR}/${file_name}" "${target_path}"
+    return 0
+  fi
+
+  download_bundle_file "${file_name}" "${target_path}"
 }
 
 detect_obsidian_config() {
@@ -95,8 +117,8 @@ if [[ ! -d "${VAULT_PATH}" ]]; then
 fi
 
 mkdir -p "${PLUGIN_DIR}"
-cp "${BUNDLE_DIR}/main.js" "${PLUGIN_DIR}/main.js"
-cp "${BUNDLE_DIR}/manifest.json" "${PLUGIN_DIR}/manifest.json"
-cp "${BUNDLE_DIR}/styles.css" "${PLUGIN_DIR}/styles.css"
+install_bundle_file "main.js" "${PLUGIN_DIR}/main.js"
+install_bundle_file "manifest.json" "${PLUGIN_DIR}/manifest.json"
+install_bundle_file "styles.css" "${PLUGIN_DIR}/styles.css"
 
 echo "Installed NoteGround into: ${PLUGIN_DIR}"
