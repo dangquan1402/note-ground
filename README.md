@@ -73,4 +73,4 @@ Install at least one supported AI CLI locally:
 
 ## Version
 
-This bundle release is `0.3.1`.
+This bundle release is `0.3.2`.

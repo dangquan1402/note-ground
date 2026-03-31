@@ -1,6 +1,6 @@
 {
   "name": "note-ground",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Installable NoteGround Obsidian plugin bundle and installer.",
   "license": "MIT",
   "bin": {
