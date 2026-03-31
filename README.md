@@ -42,7 +42,21 @@ Or target a specific vault:
 npx note-ground /path/to/your/vault
 ```
 
-### Option C: Manual
+### Option C: curl
+
+Install into the currently open Obsidian vault:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/dangquan1402/note-ground/main/install.sh | bash -s -- --active-vault
+```
+
+Or target a specific vault:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/dangquan1402/note-ground/main/install.sh | bash -s -- /path/to/your/vault
+```
+
+### Option D: Manual
 
 1. Download `bundle/main.js`, `bundle/manifest.json`, and `bundle/styles.css` from this repository or its releases.
 2. Create the folder `<your-vault>/.obsidian/plugins/note-ground/`.
