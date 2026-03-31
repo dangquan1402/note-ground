@@ -1,0 +1,25 @@
+{
+  "name": "note-ground",
+  "version": "0.3.1",
+  "description": "Installable NoteGround Obsidian plugin bundle and installer.",
+  "license": "MIT",
+  "bin": {
+    "note-ground": "./install.mjs",
+    "note-ground-install": "./install.mjs"
+  },
+  "files": [
+    "bundle",
+    "install.sh",
+    "install.mjs",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "obsidian",
+    "plugin",
+    "noteground",
+    "install"
+  ]
+}

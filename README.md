@@ -30,7 +30,19 @@ This copies the bundle files into:
 <vault>/.obsidian/plugins/note-ground/
 ```
 
-### Option B: Manual
+### Option B: npx
+
+```bash
+npx note-ground --active-vault
+```
+
+Or target a specific vault:
+
+```bash
+npx note-ground /path/to/your/vault
+```
+
+### Option C: Manual
 
 1. Download `bundle/main.js`, `bundle/manifest.json`, and `bundle/styles.css` from this repository or its releases.
 2. Create the folder `<your-vault>/.obsidian/plugins/note-ground/`.
