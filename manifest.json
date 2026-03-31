@@ -1,0 +1,10 @@
+{
+  "id": "note-ground",
+  "name": "NoteGround",
+  "version": "0.3.1",
+  "minAppVersion": "1.4.0",
+  "description": "Grounded search and AI chat for your vault with source citations.",
+  "author": "dangquan1402",
+  "isDesktopOnly": true,
+  "main": "main.js"
+}
